@@ -29,8 +29,8 @@ export default defineConfig({
     ],
 
     footer: {
-      message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2025 <a href="https://www.meng.me">meng.me</a>'
+      message: 'email: me@meng.me',
+      copyright: 'Copyright © 2025 mengling.meng.me'
     }
   }
 })

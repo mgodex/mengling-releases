@@ -2,6 +2,8 @@
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
 
+titleTemplate: 让生活更高效
+
 hero:
   name: "萌灵App"
   text: "跨平台实用工具软件"

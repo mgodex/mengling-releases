@@ -103,7 +103,8 @@ let swiperInstance = null
 // 跳转到指定幻灯片
 const goToSlide = (index) => {
   if (swiperInstance) {
-    swiperInstance.slideTo(index)
+    // 在loop模式下，使用slideToLoop来正确跳转
+    swiperInstance.slideToLoop(index)
   }
 }
 
@@ -114,6 +115,7 @@ const onSwiper = (swiper) => {
 
 // 幻灯片变化回调
 const onSlideChange = (swiper) => {
+  // 在loop模式下，使用realIndex来获取真实的图片索引
   currentSlide.value = swiper.realIndex
 }
 
