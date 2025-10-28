@@ -1,4 +1,17 @@
 import {
+  computed,
+  h,
+  inject,
+  nextTick,
+  onBeforeUnmount,
+  onBeforeUpdate,
+  onMounted,
+  onUpdated,
+  provide,
+  ref,
+  watch
+} from "./chunk-QAXAIFA7.js";
+import {
   animateCSSModeScroll,
   createElement,
   deleteProps,
@@ -19,20 +32,7 @@ import {
   setCSSProperty,
   setInnerHTML,
   showWarning
-} from "./chunk-JGEUIY2G.js";
-import {
-  computed,
-  h,
-  inject,
-  nextTick,
-  onBeforeUnmount,
-  onBeforeUpdate,
-  onMounted,
-  onUpdated,
-  provide,
-  ref,
-  watch
-} from "./chunk-FCZNBNSO.js";
+} from "./chunk-LVBMC5WQ.js";
 
 // node_modules/swiper/shared/swiper-core.mjs
 var support;
@@ -3963,14 +3963,14 @@ function updateSwiper({
       if (!nextEl || typeof nextEl === "string") {
         nextEl = document.createElement("div");
         nextEl.classList.add("swiper-button-next");
-        setInnerHTML(nextEl, swiper.hostEl.constructor.nextButtonSvg);
+        setInnerHTML(nextEl, swiper.navigation.arrowSvg);
         nextEl.part.add("button-next");
         swiper.el.appendChild(nextEl);
       }
       if (!prevEl || typeof prevEl === "string") {
         prevEl = document.createElement("div");
         prevEl.classList.add("swiper-button-prev");
-        setInnerHTML(prevEl, swiper.hostEl.constructor.prevButtonSvg);
+        setInnerHTML(prevEl, swiper.navigation.arrowSvg);
         prevEl.part.add("button-prev");
         swiper.el.appendChild(prevEl);
       }

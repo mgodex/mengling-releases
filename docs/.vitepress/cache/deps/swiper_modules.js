@@ -18,7 +18,7 @@ import {
   now,
   setCSSProperty,
   setInnerHTML
-} from "./chunk-JGEUIY2G.js";
+} from "./chunk-LVBMC5WQ.js";
 
 // node_modules/swiper/modules/virtual.mjs
 function Virtual({
@@ -173,13 +173,13 @@ function Virtual({
         offset,
         from,
         to,
-        slides: (function getSlides() {
+        slides: function getSlides() {
           const slidesToRender = [];
           for (let i = from; i <= to; i += 1) {
             slidesToRender.push(slides[i]);
           }
           return slidesToRender;
-        })()
+        }()
       });
       if (swiper.params.virtual.renderExternalUpdate) {
         onRendered();
@@ -821,6 +821,7 @@ function Navigation({
     navigation: {
       nextEl: null,
       prevEl: null,
+      addIcons: true,
       hideOnClick: false,
       disabledClass: "swiper-button-disabled",
       hiddenClass: "swiper-button-hidden",
@@ -830,7 +831,8 @@ function Navigation({
   });
   swiper.navigation = {
     nextEl: null,
-    prevEl: null
+    prevEl: null,
+    arrowSvg
   };
   function getEl(el) {
     let res;
@@ -904,8 +906,11 @@ function Navigation({
     prevEl = makeElementsArray(prevEl);
     const initButton = (el, dir) => {
       if (el) {
-        if (el.matches(".swiper-button-next,.swiper-button-prev") && !el.querySelector("svg")) {
-          setInnerHTML(el, arrowSvg);
+        if (params.addIcons && el.matches(".swiper-button-next,.swiper-button-prev") && !el.querySelector("svg")) {
+          const tempEl = document.createElement("div");
+          setInnerHTML(tempEl, arrowSvg);
+          el.appendChild(tempEl.querySelector("svg"));
+          tempEl.remove();
         }
         el.addEventListener("click", dir === "next" ? onNextClick : onPrevClick);
       }
@@ -2629,7 +2634,7 @@ function Controller({
     control: void 0
   };
   function LinearSpline(x, y) {
-    const binarySearch = /* @__PURE__ */ (function search() {
+    const binarySearch = /* @__PURE__ */ function search() {
       let maxIndex;
       let minIndex;
       let guess;
@@ -2646,7 +2651,7 @@ function Controller({
         }
         return maxIndex;
       };
-    })();
+    }();
     this.x = x;
     this.y = y;
     this.lastIndex = x.length - 1;
